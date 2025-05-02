@@ -1,26 +1,15 @@
-# sensor_package/sensor_simulator.py
+# main_package/main_24782017.py
 """
-Modul untuk simulasi sensor suhu dan kelembapan.
+Modul utama untuk menampilkan data sensor suhu dan kelembapan dari sensor_simulator.
 """
 
-import random
+from sensor_package import sensor_simulator
 
-def generate_temperature():
-    """
-    Menghasilkan suhu acak dalam rentang 18 - 35 derajat Celsius.
-    """
-    return round(random.uniform(18.0, 35.0), 2)
+def main():
+    print("SMART HOME - Monitor Suhu dan Kelembapan")
+    suhu, kelembapan = sensor_simulator.get_sensor_data()
+    print(f"Suhu: {suhu}°C")
+    print(f"Kelembapan: {kelembapan}%")
 
-def generate_humidity():
-    """
-    Menghasilkan kelembapan acak dalam rentang 30 - 70 persen.
-    """
-    return round(random.uniform(30.0, 70.0), 2)
-
-def get_sensor_data():
-    """
-    Mengembalikan data sensor suhu dan kelembapan sebagai tuple.
-    """
-    suhu = generate_temperature()
-    kelembapan = generate_humidity()
-    return suhu, kelembapan
+if __name__ == "__main__":
+    main()
